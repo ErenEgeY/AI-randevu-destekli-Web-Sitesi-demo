@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatpory - Müşteri Hizmetlerini Dönüştürün</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#8A9A5B',
+                        mint: '#E0F2F1',
+                        forest: '#2E8B57',
+                        cream: '#FAFAFA',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAFAFA;
+            font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(20px) rotate(-5deg); }
+        }
+        .float-1 {
+            animation: float 6s ease-in-out infinite;
+        }
+        .float-2 {
+            animation: float2 8s ease-in-out infinite;
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .delay-400 { animation-delay: 0.4s; opacity: 0; }
+        .delay-600 { animation-delay: 0.6s; opacity: 0; }
+        .delay-800 { animation-delay: 0.8s; opacity: 0; }
+    </style>
+</head>
+<body class="antialiased">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-sage p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-900">Chatpory</span>
+                </div>
+                <button class="bg-forest hover:bg-sage text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
+                    Giriş Yap
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 px-4">
+        <div class="absolute inset-0 bg-gradient-to-br from-mint via-cream to-mint/50 -z-10"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute right-10 top-32 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-sage/40 to-forest/30 rounded-full blur-3xl float-1"></div>
+        <div class="absolute left-10 bottom-32 w-48 h-48 md:w-72 md:h-72 bg-gradient-to-br from-forest/30 to-sage/40 rounded-full blur-3xl float-2"></div>
+
+        <div class="relative z-10 text-center max-w-5xl mx-auto">
+            <div class="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-6 shadow-sm fade-in delay-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-forest">
+                    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
+                </svg>
+                <span class="text-sm font-medium text-gray-700">Yapay Zeka Destekli Müşteri Hizmeti</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight fade-in delay-400">
+                Müşteri Hizmetlerini<br>
+                <span class="text-forest">Chatpory</span> ile Dönüştürün
+            </h1>
+
+            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed fade-in delay-600">
+                Modern yapay zeka teknolojisi ile müşteri memnuniyetini artırın,
+                işletmenizi 7/24 erişilebilir hale getirin.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in delay-800">
+                <button class="bg-forest hover:bg-sage text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto hover:scale-105 active:scale-95">
+                    Ücretsiz Deneyin
+                </button>
+                <button class="bg-white hover:bg-gray-50 text-forest px-8 py-4 rounded-lg font-semibold text-lg border-2 border-forest transition-all duration-300 w-full sm:w-auto hover:scale-105 active:scale-95">
+                    Demo İzle
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Neden Chatpory?
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    İşletmenizi bir üst seviyeye taşıyacak özellikler
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gradient-to-br from-mint to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-forest text-white w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">7/24 Destek</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Müşterileriniz her zaman yanıt alır. Gece yarısı dahi olsa, chatbot'unuz aktif.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-gradient-to-br from-mint to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-forest text-white w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" x2="12" y1="20" y2="10"></line>
+                            <line x1="18" x2="18" y1="20" y2="4"></line>
+                            <line x1="6" x2="6" y1="20" y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Gelişmiş Analitik</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Detaylı raporlar ile müşteri davranışlarını anlayın, stratejinizi geliştirin.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-gradient-to-br from-mint to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-forest text-white w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Kolay Kurulum</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        5 dakikada entegrasyon. Kodlama bilgisi gerektirmez, hemen başlayın.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="py-16 px-4 bg-gradient-to-b from-white to-mint/30">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center">
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-8">
+                    500+ İşletme Tarafından Güvenilir
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+                    <div class="w-32 h-12 bg-gray-200 rounded-lg flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110">
+                        <span class="text-gray-600 font-bold text-sm">TechCorp</span>
+                    </div>
+                    <div class="w-36 h-12 bg-gray-200 rounded-lg flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110">
+                        <span class="text-gray-600 font-bold text-sm">StartupHub</span>
+                    </div>
+                    <div class="w-32 h-12 bg-gray-200 rounded-lg flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110">
+                        <span class="text-gray-600 font-bold text-sm">InnovateCo</span>
+                    </div>
+                    <div class="w-40 h-12 bg-gray-200 rounded-lg flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110">
+                        <span class="text-gray-600 font-bold text-sm">DigitalWave</span>
+                    </div>
+                    <div class="w-32 h-12 bg-gray-200 rounded-lg flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110">
+                        <span class="text-gray-600 font-bold text-sm">CloudSync</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-gradient-to-br from-forest to-sage relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <div class="text-center text-white">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                    Müşteri Deneyiminizi Bugün Yükseltin
+                </h2>
+                <p class="text-lg md:text-xl mb-10 text-white/90 max-w-2xl mx-auto">
+                    Chatpory ile müşteri memnuniyetini artırın, maliyetleri düşürün.
+                    14 gün ücretsiz deneme, kredi kartı gerekmez.
+                </p>
+                <button class="bg-white text-forest px-10 py-4 rounded-lg font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 inline-flex items-center space-x-2 hover:scale-105 active:scale-95">
+                    <span>Hemen Başlayın</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </button>
+                <p class="text-sm text-white/80 mt-6">
+                    ✓ Kredi kartı gerektirmez &nbsp;&nbsp; ✓ 5 dakikada kurulum &nbsp;&nbsp; ✓ İstediğiniz zaman iptal edin
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-sage p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold">Chatpory</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Yapay zeka destekli müşteri hizmeti çözümleri ile işletmenizi geleceğe taşıyın.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-4">Hızlı Bağlantılar</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-sage transition-colors">Özellikler</a></li>
+                        <li><a href="#" class="hover:text-sage transition-colors">Fiyatlandırma</a></li>
+                        <li><a href="#" class="hover:text-sage transition-colors">Hakkımızda</a></li>
+                        <li><a href="#" class="hover:text-sage transition-colors">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-4">İletişim</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                            <span>info@chatpory.com</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <span>+90 (212) 555 0 123</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+                <p>© 2026 Chatpory. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
